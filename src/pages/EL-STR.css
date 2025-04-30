@@ -1,0 +1,146 @@
+/* src/pages/EL-STR.css */
+
+.el-str-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    /* 垂直居中對齊 */
+    justify-content: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.el-str-image-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.el-str-image {
+    width: 100%;
+    max-width: 450px;
+    /* 限制最大寬度 */
+    height: auto;
+    /* 高度自適應 */
+    object-fit: contain;
+    /* 保持原比例 */
+    border-radius: 12px;
+    /* 增加圓角 */
+    transition: transform 0.3s ease;
+}
+
+.el-str-image:hover {
+    transform: scale(1.03);
+    /* 輕微放大效果 */
+}
+
+.el-str-details-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.el-str-image-section,
+.el-str-details-section {
+    flex: 1 1 500px;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    align-self: center;
+    /* 確保兩個部分都垂直居中 */
+}
+
+.el-str-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.el-str-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.el-str-price {
+    font-size: 1.5rem;
+    color: #705C53;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.el-str-overview-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.el-str-features-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.el-str-features-list li {
+    margin-bottom: 5px;
+}
+
+.el-str-add-to-cart {
+    background-color: #705C53;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.el-str-add-to-cart:hover {
+    background-color: #5a4842;
+}
+
+@media screen and (max-width: 768px) {
+    .el-str-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .el-str-image-section,
+    .el-str-details-section {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .el-str-image {
+        max-width: 100%;
+        /* 手機版上圖片可以占滿容器寬度 */
+    }
+
+    .el-str-title {
+        font-size: 2rem;
+    }
+
+    .el-str-price {
+        font-size: 1.5rem;
+    }
+
+    .el-str-overview-title {
+        font-size: 1.5rem;
+    }
+}

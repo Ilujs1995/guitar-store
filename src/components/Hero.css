@@ -1,0 +1,52 @@
+/* src/components/Hero.css */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin: 4rem;
+}
+
+.hero-text {
+    max-width: 500px;
+    text-align: left;
+}
+
+.hero-h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text button {
+    margin-right: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border: 1px solid #705C53;
+    background-color: #705C53;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.hero-image img {
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.hero-text button:hover {
+    background-color: white;
+    /* 滑鼠懸停時的背景色 */
+    color: #705C53;
+    /* 滑鼠懸停時的文字顏色 */
+    border: 1px solid #705C53;
+    /* 可選：添加邊框 */
+}

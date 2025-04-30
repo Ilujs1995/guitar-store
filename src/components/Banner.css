@@ -1,0 +1,81 @@
+/* src/components/Banner.css */
+.banner {
+    background-image: url('../assets/images/banner-guitar.jpg');
+    /* 相對路徑引用背景圖片 */
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 0rem 4rem 12rem;
+    /* 桌面版左側padding */
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 3rem;
+    text-align: left;
+    /* 讓內部元素左對齊 */
+}
+
+.banner-h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.banner p {
+    margin-bottom: 1.5rem;
+    /* 增加段落底部間距 */
+}
+
+.banner button {
+    margin: 0 0.5rem;
+    padding: 0.75rem 1.25rem;
+    /* 調整按鈕內邊距 */
+    border: none;
+    background-color: #fff;
+    color: #705C53;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1rem;
+    /* 調整按鈕文字大小 */
+}
+
+/* 大螢幕裝置 */
+@media screen and (max-width: 1200px) {
+    .banner {
+        padding: 4rem 0rem 4rem 8rem;
+        /* 大螢幕減少左側padding */
+    }
+}
+
+/* 中等螢幕裝置 */
+@media screen and (max-width: 992px) {
+    .banner {
+        padding: 4rem 0rem 4rem 5rem;
+        /* 中螢幕進一步減少左側padding */
+    }
+}
+
+/* 平板裝置 */
+@media screen and (max-width: 768px) {
+    .banner {
+        padding: 3rem 2rem;
+        /* 平板版更改為左右對稱padding */
+    }
+
+    .banner-h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* 手機裝置 */
+@media screen and (max-width: 576px) {
+    .banner {
+        padding: 2rem 1.5rem;
+        /* 手機版減少整體padding */
+        text-align: center;
+        /* 手機版文字居中 */
+    }
+
+    .banner-h2 {
+        font-size: 1.5rem;
+    }
+}

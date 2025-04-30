@@ -1,0 +1,36 @@
+/* src/components/Header.css */
+header {
+    background-color: #705C53;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav {
+    margin-top: 0.5rem;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* src/components/Header.css */
+header h1 a {
+    color: inherit;
+    /* 繼承 header 的顏色 */
+    text-decoration: none;
+    /* 移除下劃線 */
+}
+
+header h1 a:hover {
+    /* 可選：hover 效果 */
+    text-decoration: underline;
+}
+
+/* 你其他的 header 樣式 */

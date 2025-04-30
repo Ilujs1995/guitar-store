@@ -1,0 +1,146 @@
+/* ac-01.css */
+
+.ac-01-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    /* 將子元素垂直居中對齊 */
+    justify-content: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.ac-01-image-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    /* 在小屏幕上的底部間距 */
+    overflow: hidden;
+}
+
+.ac-01-image {
+    width: 100%;
+    max-width: 450px;
+    /* 限制最大寬度 */
+    height: auto;
+    /* 高度自適應 */
+    object-fit: contain;
+    /* 保持原比例 */
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.ac-01-image:hover {
+    transform: scale(1.03);
+}
+
+.ac-01-details-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* 垂直自身對齊由父容器.ac-01-container的align-items控制 */
+}
+
+.ac-01-image-section,
+.ac-01-details-section {
+    flex: 1 1 500px;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    align-self: center;
+    /* 確保兩個部分都垂直居中 */
+}
+
+.ac-01-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ac-01-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.ac-01-price {
+    font-size: 1.5rem;
+    color: #705C53;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.ac-01-overview-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.ac-01-features-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.ac-01-features-list li {
+    margin-bottom: 5px;
+}
+
+.ac-01-add-to-cart {
+    background-color: #705C53;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.ac-01-add-to-cart:hover {
+    background-color: #5a4842;
+}
+
+@media screen and (max-width: 768px) {
+    .ac-01-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ac-01-image-section,
+    .ac-01-details-section {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .ac-01-image {
+        max-width: 100%;
+        /* 手機版上圖片可以占滿容器寬度 */
+    }
+
+    .ac-01-title {
+        font-size: 2rem;
+    }
+
+    .ac-01-price {
+        font-size: 1.5rem;
+    }
+
+    .ac-01-overview-title {
+        font-size: 1.5rem;
+    }
+}

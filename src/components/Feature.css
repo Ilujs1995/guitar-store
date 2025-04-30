@@ -1,0 +1,10 @@
+/* src/components/Feature.css */
+.feature img {
+    width: 100%;
+    border-radius: 0px;
+    margin: 2rem 0;
+    height: 21.875rem;
+    /* 請注意這裡的單位可能是 px 轉換後的 rem */
+    object-fit: cover;
+    /* 確保圖片填滿容器且不失真 */
+}

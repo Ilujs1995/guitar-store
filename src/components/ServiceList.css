@@ -1,0 +1,39 @@
+/* src/components/ServiceList.css */
+.service-list {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.text-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 4rem 7rem;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.service-list-h2 {
+    font-size: 2rem;
+    margin: 0 0 2rem 0;
+    align-self: center;
+    text-align: left;
+}
+
+.text-grid p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    align-self: center;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+    /* 添加一些內邊距 */
+}

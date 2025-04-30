@@ -1,0 +1,94 @@
+.customization-form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+.form-group {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.form-group h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+    /* Emphasize options */
+}
+
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.form-group input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 100px);
+    /* Adjust width to accommodate "Other:" text */
+    margin-top: 5px;
+}
+
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+button[type="submit"] {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .customization-form-container {
+        padding: 15px;
+    }
+
+    .form-group {
+        padding: 10px;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    button[type="submit"] {
+        font-size: 1rem;
+    }
+}
