@@ -37,6 +37,7 @@ nav a:hover {
 .product-main {
     text-align: center;
     width: 100vw;
+    margin-bottom: 2rem;
 }
 
 .product-main h2 {
@@ -77,12 +78,6 @@ nav a:hover {
     margin-top: 1rem;
 }
 
-footer {
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #777;
-}
 
 /* 響應式設計 */
 @media (max-width: 600px) {

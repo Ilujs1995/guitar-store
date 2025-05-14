@@ -1,0 +1,116 @@
+/* src/pages/ShoppingCart.css */
+
+.shoppingcartDiv {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.shoppingcartH2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.emptyCart {
+    color: #777;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cartList {
+    list-style: none;
+    padding: 0;
+}
+
+.cartItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cartItem:last-child {
+    border-bottom: none;
+}
+
+.itemDetails {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.itemName {
+    margin-right: 10px;
+}
+
+.itemPrice {
+    font-weight: bold;
+    color: #555;
+}
+
+.quantityControls {
+    display: flex;
+    align-items: center;
+}
+
+.quantityButton {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.quantityButton:hover {
+    background-color: #ddd;
+}
+
+.quantity {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.removeItemButton {
+    padding: 5px 10px;
+    border: 1px solid #d9534f;
+    border-radius: 4px;
+    background-color: #f44336;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.removeItemButton:hover {
+    background-color: #d32f2f;
+}
+
+.totalAmount {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+.checkoutButton {
+    display: block;
+    margin: 30px auto 0;
+    padding: 10px 20px;
+    border: 1px solid #5cb85c;
+    border-radius: 6px;
+    background-color: #5cb85c;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-align: center;
+    /* 讓按鈕文字居中 */
+}
+
+.checkoutButton:hover {
+    background-color: #4cae4c;
+}

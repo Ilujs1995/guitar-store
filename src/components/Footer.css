@@ -48,7 +48,7 @@ footer li {
     justify-content: space-around;
     margin-bottom: 1.5rem;
     text-align: left;
-    /* 修正連結列表文字對齊 */
+    margin: 0 30rem;
 }
 
 .footer-links div {
@@ -59,4 +59,26 @@ footer li {
     font-size: 0.9rem;
     color: #ccc;
     margin-top: 2rem;
+}
+
+/* 針對較小的螢幕，進一步縮小外距 */
+@media (max-width: 1200px) {
+    .footer-links {
+        margin-left: 15vw;
+        margin-right: 15vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-links {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-links {
+        margin-left: 2vw;
+        margin-right: 2vw;
+    }
 }

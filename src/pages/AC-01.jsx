@@ -1,8 +1,21 @@
 import React from 'react';
-import './ac-01.css'; // 確保路徑正確
-import ac01Image from '/src/assets/images/product-acoustic-guitar.jpg'; // 確保路徑正確
+import './ac-01.css';
+import ac01Image from '/src/assets/images/product-acoustic-guitar.jpg';
+import { useShoppingCart } from '../context/ShoppingCartContext';
+import products from '../context/Products';
 
 function AC01() {
+    const { addItem } = useShoppingCart();
+    const ac01Product = products.find(product => product.id === 'AC-01');
+
+    const handleAddToCart = () => {
+        if (ac01Product) {
+            addItem(ac01Product);
+        } else {
+            console.error('AC-01 product not found.');
+        }
+    };
+
     return (
         <div className="ac-01-container">
             <div className="ac-01-image-section">
@@ -23,7 +36,7 @@ function AC01() {
                     <li>Features Fishman pickups for authentic plugged-in tone</li>
                     <li>Includes hardshell case for storage and transport</li>
                 </ul>
-                <button className="ac-01-add-to-cart">Add to cart</button>
+                <button className="ac-01-add-to-cart" onClick={handleAddToCart}>Add to cart</button>
             </div>
         </div>
     );

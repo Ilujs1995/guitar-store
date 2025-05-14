@@ -1,43 +1,59 @@
+// src/pages/Product.jsx
 import React from 'react';
-import ProductCard from './ProductCard';
-import acousticGuitarImage from '/src/assets/images/product-acoustic-guitar.jpg';
-import stratocasterImage from '/src/assets/images/product-stratocaster.jpg';
-import lesPaulImage from '/src/assets/images/product-les-paul.jpg';
+import ProductCard from '../pages/ProductCard'; // 確保路徑正確
 import './Product.css';
+import products from '../context/Products'; // 確保路徑正確
+import { useShoppingCart } from '../context/ShoppingCartContext'; // 確保路徑正確
+import acGuitarSound from '../assets/audios/AC-01.mp3';
+import elStrSound from '../assets/audios/EL-STR.mp3';
+import elLspSound from '../assets/audios/EL-LSP.mp3';
 
 function Product() {
+    const { addItem } = useShoppingCart();
+
+    const handleAddToCart = (product) => {
+        addItem(product);
+    };
+
+    const buttonStyle = { // 定義你的按鈕樣式
+        marginRight: '1.5rem',
+        padding: '0.75rem 1.5rem',
+        fontSize: '1.1rem',
+        border: '1px solid #705C53',
+        backgroundColor: '#705C53',
+        color: 'white',
+        cursor: 'pointer',
+        borderRadius: '6px',
+    };
+
     return (
         <>
             <main className="product-main">
                 <h2 className="product-title">✨Genuine Guitar✨</h2>
                 <section className="product-list">
-                    <ProductCard
-                        image={acousticGuitarImage}
-                        title="AC-01"
-                        description="Warm wood tone, suitable for fingerpicking."
-                        audioSrc="audio/Output1.mp3"
-                        link="/ac-01"
-                    />
-                    <ProductCard
-                        image={stratocasterImage}
-                        title="EL-STR"
-                        description="Bright and clear tone, suitable for funk."
-                        audioSrc="audio/guitar2.mp3"
-                        link="/el-str"
-                    />
-                    <ProductCard
-                        image={lesPaulImage}
-                        title="EL-LSP"
-                        description="Full-bodied, suitable for heavy metal rock."
-                        audioSrc="audio/guitar2.mp3"
-                        link="/el-lsp"
-                    />
+                    {products.map(product => (
+                        <ProductCard
+                            key={product.id}
+                            image={product.imageUrl}
+                            title={product.name}
+                            description={
+                                product.id === 'AC-01' ? 'Warm wood tone, suitable for fingerpicking.' :
+                                    product.id === 'EL-STR' ? 'Bright and clear tone, suitable for funk.' :
+                                        product.id === 'EL-LSP' ? 'Full-bodied, suitable for heavy metal rock.' : ''
+                            }
+                            audioSrc={
+                                product.id === 'AC-01' ? acGuitarSound :
+                                    product.id === 'EL-STR' ? elStrSound :
+                                        product.id === 'EL-LSP' ? elLspSound : ''
+                            }
+                            link={`/${product.id.toLowerCase()}`} // 使用小寫的產品ID作為路由
+                            onAddToCart={() => handleAddToCart(product)} // 傳遞加入購物車的函式
+                        />
+                    ))}
                 </section>
             </main>
 
-            <footer>
-                <p>&copy; 2025 吉他音色商店. All rights reserved.</p>
-            </footer>
+
         </>
     );
 }

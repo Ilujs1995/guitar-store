@@ -1,6 +1,7 @@
 // src/components/Footer.jsx
 import React from 'react';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -12,12 +13,11 @@ function Footer() {
             </div>
             <div className="footer-links">
                 <div>
-                    <h4>Quick Links</h4>
+                    <h4>Products</h4>
                     <ul>
-                        <li>About Us</li>
-                        <li>Contact Us</li>
-                        <li>Shop Now</li>
-                        <li>Gift Cards</li>
+                        <li><Link to="/ac-01">AC-01</Link></li>
+                        <li><Link to="/el-str">EL-STR</Link></li>
+                        <li><Link to="/el-lsp">EL-LSP</Link></li>
                     </ul>
                 </div>
                 <div>
@@ -25,21 +25,11 @@ function Footer() {
                     <ul>
                         <li>Instagram</li>
                         <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>YouTube</li>
                     </ul>
                 </div>
-                <div>
-                    <h4>Resources</h4>
-                    <ul>
-                        <li>Blog</li>
-                        <li>FAQs</li>
-                        <li>Shipping Info</li>
-                        <li>Returns</li>
-                    </ul>
-                </div>
+
             </div>
-            <p className="copyright">&copy; 2024 Aesthetic Guitars. All rights reserved.</p>
+            <p className="copyright">&copy; 2025 Aesthetic Guitars. All rights reserved.</p>
         </footer>
     );
 }

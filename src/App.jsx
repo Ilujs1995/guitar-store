@@ -1,6 +1,7 @@
+// App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/header';
+import Header from './components/Header';
 import Hero from './components/Hero';
 import Feature from './components/Feature';
 import Highlight from './components/Highlight';
@@ -16,33 +17,38 @@ import Manufacturing from './pages/Manufacturing';
 import CustomizationForm from './pages/CustomizationForm';
 import ContactUs from './pages/ContactUs';
 import './App.css';
+import { ShoppingCartProvider } from './context/ShoppingCartContext'; // 確保路徑正確
+import ShoppingCart from './pages/ShoppingCart'; // 確保路徑正確
 
 function App() {
   return (
     <Router>
-      <div>
-        <Header />
-        <Routes>
-          <Route path="/" element={
-            <main>
-              <Hero />
-              <Feature />
-              <Highlight />
-              <ServiceList />
-              <Testimonial />
-              <Banner />
-            </main>
-          } />
-          <Route path="/product" element={<Product />} />
-          <Route path="/ac-01" element={<AC01 />} /> {/* Add this route for AC01 */}
-          <Route path="/el-str" element={<ELSTR />} /> {/* Add this route for ELSTR */}
-          <Route path="/el-lsp" element={<ELLSP />} /> {/* Add this route for ELLSP */}
-          <Route path="/manufacturing" element={<Manufacturing />} /> {/* Add this route for Manufacturing */}
-          <Route path="/customizationform" element={<CustomizationForm />} /> {/* Add this route for CustomizationForm */}
-          <Route path="/contactus" element={<ContactUs />} /> {/* Add this route for ContactUs */}
-        </Routes>
-        <Footer />
-      </div>
+      <ShoppingCartProvider> {/* 包裹整個應用程式 */}
+        <div>
+          <Header />
+          <Routes>
+            <Route path="/" element={
+              <main>
+                <Hero />
+                <Feature />
+                <Highlight />
+                <ServiceList />
+                <Testimonial />
+                <Banner />
+              </main>
+            } />
+            <Route path="/product" element={<Product />} />
+            <Route path="/ac-01" element={<AC01 />} /> {/* Add this route for AC01 */}
+            <Route path="/el-str" element={<ELSTR />} /> {/* Add this route for ELSTR */}
+            <Route path="/el-lsp" element={<ELLSP />} /> {/* Add this route for ELLSP */}
+            <Route path="/manufacturing" element={<Manufacturing />} /> {/* Add this route for Manufacturing */}
+            <Route path="/customizationform" element={<CustomizationForm />} /> {/* Add this route for CustomizationForm */}
+            <Route path="/contactus" element={<ContactUs />} /> {/* Add this route for ContactUs */}
+            <Route path="/cart" element={<ShoppingCart />} /> {/* 添加購物車頁面的路由 */}
+          </Routes>
+          <Footer />
+        </div>
+      </ShoppingCartProvider> {/* 結束包裹 */}
     </Router>
   );
 }
