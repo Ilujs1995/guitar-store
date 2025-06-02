@@ -1,18 +1,85 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ac-01.css';
 import ac01Image from '/src/assets/images/product-acoustic-guitar.jpg';
 import { useShoppingCart } from '../context/ShoppingCartContext';
-import products from '../context/Products';
 
 function AC01() {
-    const { addItem } = useShoppingCart();
-    const ac01Product = products.find(product => product.id === 'AC-01');
+    const { addItem, sessionId } = useShoppingCart();
+    const [isAdding, setIsAdding] = useState(false);
+    const [message, setMessage] = useState('');
 
-    const handleAddToCart = () => {
-        if (ac01Product) {
-            addItem(ac01Product);
-        } else {
-            console.error('AC-01 product not found.');
+    // AC-01 商品資料 (與後端一致)
+    const ac01Product = {
+        id: 'AC-01',
+        name: 'AC-01',
+        price: 449,
+        imageUrl: '/src/assets/images/product-acoustic-guitar.jpg'
+    };
+
+    const handleAddToCart = async () => {
+        try {
+            setIsAdding(true);
+            setMessage('');
+
+            // 方法一：使用 ShoppingCartContext 的 addItem 方法
+            await addItem(ac01Product);
+
+            setMessage('✓ 商品已添加到購物車！');
+
+            // 3秒後清除訊息
+            setTimeout(() => setMessage(''), 3000);
+
+        } catch (error) {
+            console.error('添加商品到購物車失敗:', error);
+            setMessage('❌ 添加失敗，請稍後再試');
+
+            // 5秒後清除錯誤訊息
+            setTimeout(() => setMessage(''), 5000);
+        } finally {
+            setIsAdding(false);
+        }
+    };
+
+    // 方法二：直接調用後端 API（可選）
+    const handleAddToCartDirect = async () => {
+        try {
+            setIsAdding(true);
+            setMessage('');
+
+            const response = await fetch(`http://localhost:3001/api/cart/${sessionId}/items`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    productId: 'AC-01',
+                    quantity: 1
+                })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                setMessage('✓ 商品已添加到購物車！');
+
+                // 可以觸發購物車更新事件或重新獲取購物車資料
+                // 這裡你可能需要調用 ShoppingCartContext 的更新方法
+
+            } else {
+                throw new Error(result.error || '添加失敗');
+            }
+
+            // 3秒後清除訊息
+            setTimeout(() => setMessage(''), 3000);
+
+        } catch (error) {
+            console.error('添加商品到購物車失敗:', error);
+            setMessage('❌ 添加失敗，請稍後再試');
+
+            // 5秒後清除錯誤訊息
+            setTimeout(() => setMessage(''), 5000);
+        } finally {
+            setIsAdding(false);
         }
     };
 
@@ -36,7 +103,32 @@ function AC01() {
                     <li>Features Fishman pickups for authentic plugged-in tone</li>
                     <li>Includes hardshell case for storage and transport</li>
                 </ul>
-                <button className="ac-01-add-to-cart" onClick={handleAddToCart}>Add to cart</button>
+
+                {/* 狀態訊息顯示 */}
+                {message && (
+                    <div className="message" style={{
+                        padding: '0.75rem',
+                        borderRadius: '6px',
+                        marginBottom: '1rem',
+                        backgroundColor: message.includes('✓') ? '#d4edda' : '#f8d7da',
+                        color: message.includes('✓') ? '#155724' : '#721c24',
+                        border: `1px solid ${message.includes('✓') ? '#c3e6cb' : '#f5c6cb'}`
+                    }}>
+                        {message}
+                    </div>
+                )}
+
+                <button
+                    className="ac-01-add-to-cart"
+                    onClick={handleAddToCart}
+                    disabled={isAdding}
+                    style={{
+                        opacity: isAdding ? 0.7 : 1,
+                        cursor: isAdding ? 'not-allowed' : 'pointer'
+                    }}
+                >
+                    {isAdding ? 'Adding...' : 'Add to cart'}
+                </button>
             </div>
         </div>
     );
