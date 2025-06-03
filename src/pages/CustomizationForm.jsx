@@ -1,3 +1,4 @@
+// CustomizationForm.jsx
 import React, { useState } from 'react';
 import './customizationform.css';
 
@@ -15,6 +16,9 @@ function CustomizationForm() {
         additionalRequests: '',
     });
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState('');
+
     const handleChange = (event) => {
         const { name, value, type, checked } = event.target;
         setFormData(prevFormData => ({
@@ -23,16 +27,61 @@ function CustomizationForm() {
         }));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // 在這裡處理表單提交的邏輯，例如發送數據到後端
-        console.log(formData);
-        alert('Submit！\n' + JSON.stringify(formData, null, 2));
+        setIsSubmitting(true);
+        setSubmitMessage('');
+
+        try {
+            const response = await fetch('http://localhost:3001/api/custom-orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ...formData,
+                    timestamp: new Date().toISOString(),
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                setSubmitMessage('訂單提交成功！我們會盡快聯繫您。訂單編號：' + result.data.orderId);
+                // 重置表單
+                setFormData({
+                    topWood: '',
+                    backSidesWood: '',
+                    neckWood: '',
+                    fingerboardWood: '',
+                    bodyShape: '',
+                    bodyColor: '',
+                    bracingStyle: '',
+                    finish: '',
+                    inlayStyle: '',
+                    additionalRequests: '',
+                });
+            } else {
+                setSubmitMessage('提交失敗：' + result.error);
+            }
+        } catch (error) {
+            console.error('提交錯誤:', error);
+            setSubmitMessage('網路錯誤，請稍後再試');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
         <div className="customization-form-container">
             <h2 className="form-title">🎸Custom Guitar Order Form🎸</h2>
+
+            {submitMessage && (
+                <div className={`submit-message ${submitMessage.includes('成功') ? 'success' : 'error'}`}>
+                    {submitMessage}
+                </div>
+            )}
+
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <h3>1. Top Wood</h3>
@@ -120,7 +169,6 @@ function CustomizationForm() {
                     </label>
                 </div>
 
-                {/* 針對剩餘的選項重複上述結構 */}
                 <div className="form-group">
                     <h3>3. Neck Wood</h3>
                     <label>
@@ -435,7 +483,9 @@ function CustomizationForm() {
                     />
                 </div>
 
-                <button type="submit">Submit</button>
+                <button type="submit" className="submit-button" disabled={isSubmitting}>
+                    {isSubmitting ? 'Submitting...' : 'Submit'}
+                </button>
             </form>
         </div>
     );

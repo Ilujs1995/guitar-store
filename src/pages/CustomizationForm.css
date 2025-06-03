@@ -1,3 +1,4 @@
+/* customizationform.css */
 .customization-form-container {
     max-width: 600px;
     margin: 20px auto;
@@ -10,7 +11,6 @@
 .form-title {
     text-align: center;
     margin-bottom: 20px;
-
 }
 
 .form-group {
@@ -59,25 +59,121 @@
     margin-top: 10px;
 }
 
-button[type="submit"] {
-    background-color: #5cb85c;
-    color: white;
+/* Submit button styles */
+.submit-button {
+    background-color: #705c53 !important;
+    color: white !important;
     padding: 10px 20px;
-    border: none;
+    border: none !important;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
 }
 
-button[type="submit"]:hover {
-    background-color: #4cae4c;
+.submit-button:hover:not(:disabled) {
+    background-color: #5a4a42 !important;
+    border-color: #5a4a42 !important;
+}
+
+.submit-button:disabled {
+    background-color: #a8968d !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Submit message styles */
+.submit-message {
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.submit-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.submit-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading state for submit button */
+.submit-button:disabled::after {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 8px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Form validation styles */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #705c53;
+    box-shadow: 0 0 5px rgba(112, 92, 83, 0.3);
+}
+
+.form-group input:invalid {
+    border-color: #dc3545;
+}
+
+.form-group input:valid {
+    border-color: #28a745;
+}
+
+/* Improved spacing for radio and checkbox groups */
+.form-group label {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.form-group label:hover {
+    color: #705c53;
+}
+
+.form-group input[type="checkbox"]:checked+span,
+.form-group input[type="radio"]:checked+span {
+    color: #705c53;
+    font-weight: bold;
 }
 
 /* Responsive Design */
 @media (max-width: 500px) {
     .customization-form-container {
         padding: 15px;
+        margin: 10px;
     }
 
     .form-group {
@@ -88,7 +184,28 @@ button[type="submit"]:hover {
         font-size: 0.9rem;
     }
 
-    button[type="submit"] {
+    .submit-button {
         font-size: 1rem;
+        padding: 12px 20px;
+    }
+
+    .form-group input[type="text"] {
+        width: 100%;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .form-title {
+        font-size: 1.3rem;
+    }
+
+    .form-group h3 {
+        font-size: 1.1rem;
+    }
+
+    .submit-message {
+        font-size: 0.9rem;
+        padding: 10px;
     }
 }
