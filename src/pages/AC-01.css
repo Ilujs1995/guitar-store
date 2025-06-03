@@ -6,7 +6,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    /* 將子元素垂直居中對齊 */
     justify-content: center;
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -20,18 +19,14 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    /* 在小屏幕上的底部間距 */
     overflow: hidden;
 }
 
 .ac-01-image {
     width: 100%;
     max-width: 450px;
-    /* 限制最大寬度 */
     height: auto;
-    /* 高度自適應 */
     object-fit: contain;
-    /* 保持原比例 */
     border-radius: 12px;
     transition: transform 0.3s ease;
 }
@@ -45,7 +40,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* 垂直自身對齊由父容器.ac-01-container的align-items控制 */
 }
 
 .ac-01-image-section,
@@ -55,7 +49,6 @@
     padding: 20px;
     box-sizing: border-box;
     align-self: center;
-    /* 確保兩個部分都垂直居中 */
 }
 
 .ac-01-title {
@@ -98,6 +91,28 @@
     margin-bottom: 5px;
 }
 
+/* Message styles */
+.ac-01-message {
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.ac-01-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.ac-01-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Button styles */
 .ac-01-add-to-cart {
     background-color: #705C53;
     color: white;
@@ -106,12 +121,22 @@
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, opacity 0.2s ease;
     align-self: flex-start;
 }
 
-.ac-01-add-to-cart:hover {
+.ac-01-add-to-cart:hover:not(:disabled) {
     background-color: #5a4842;
+}
+
+.ac-01-add-to-cart.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.ac-01-add-to-cart:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 @media screen and (max-width: 768px) {
@@ -129,7 +154,6 @@
 
     .ac-01-image {
         max-width: 100%;
-        /* 手機版上圖片可以占滿容器寬度 */
     }
 
     .ac-01-title {

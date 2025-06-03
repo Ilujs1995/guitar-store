@@ -18,31 +18,6 @@ function ProductCard({
     const [isAdding, setIsAdding] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
 
-    const buttonStyle = {
-        margin: '1rem',
-        padding: '0.75rem 1.5rem',
-        fontSize: '1.1rem',
-        border: '1px solid #705C53',
-        backgroundColor: isAdding ? '#8B7355' : '#705C53',
-        color: 'white',
-        cursor: isAdding ? 'not-allowed' : 'pointer',
-        borderRadius: '6px',
-        transition: 'background-color 0.2s ease',
-        opacity: isAdding ? 0.7 : 1,
-    };
-
-    const successStyle = {
-        margin: '0.5rem 1rem',
-        padding: '0.5rem',
-        fontSize: '0.9rem',
-        backgroundColor: '#4CAF50',
-        color: 'white',
-        borderRadius: '4px',
-        textAlign: 'center',
-        opacity: showSuccess ? 1 : 0,
-        transition: 'opacity 0.3s ease',
-    };
-
     const handleAddToCart = async () => {
         if (!productId) {
             console.error('ProductCard: productId is required');
@@ -64,24 +39,22 @@ function ProductCard({
     return (
         <div className="product-card">
             {link ? (
-                <Link to={link}>
+                <Link to={link} className="product-image-link">
                     <img src={image} alt={title} />
                 </Link>
             ) : (
                 <img src={image} alt={title} />
             )}
-            <h3>{title}</h3>
-            <p>{description}</p>
+
+            <h3 className="product-title">{title}</h3>
+            <p className="product-description">{description}</p>
+
             {price && (
-                <p className="product-price" style={{
-                    fontSize: '1.2rem',
-                    fontWeight: 'bold',
-                    color: '#705C53',
-                    margin: '0.5rem 0'
-                }}>
+                <p className="product-price">
                     ${price}
                 </p>
             )}
+
             {audioSrc && (
                 <audio controls className="product-audio">
                     <source src={audioSrc} type="audio/mpeg" />
@@ -89,12 +62,12 @@ function ProductCard({
                 </audio>
             )}
 
-            <div style={successStyle}>
+            <div className={`product-success-message ${showSuccess ? 'show' : ''}`}>
                 ✓ Added to cart!
             </div>
 
             <button
-                style={buttonStyle}
+                className={`product-add-button ${isAdding ? 'adding' : ''}`}
                 onClick={handleAddToCart}
                 disabled={isAdding || isLoading}
             >

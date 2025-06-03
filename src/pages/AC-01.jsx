@@ -8,7 +8,6 @@ function AC01() {
     const [isAdding, setIsAdding] = useState(false);
     const [message, setMessage] = useState('');
 
-    // AC-01 商品資料 (與後端一致)
     const ac01Product = {
         id: 'AC-01',
         name: 'AC-01',
@@ -22,17 +21,11 @@ function AC01() {
             setMessage('');
 
             await addItem(ac01Product.id, 1);
-
             setMessage('✓ Item added to cart!');
-
-            // Clear message after 3 seconds
             setTimeout(() => setMessage(''), 3000);
-
         } catch (error) {
             console.error('Failed to add item to cart:', error);
             setMessage('❌ Failed to add item. Please try again.');
-
-            // Clear error message after 5 seconds
             setTimeout(() => setMessage(''), 5000);
         } finally {
             setIsAdding(false);
@@ -60,28 +53,16 @@ function AC01() {
                     <li>Includes hardshell case for storage and transport</li>
                 </ul>
 
-                {/* Status message display */}
                 {message && (
-                    <div className="message" style={{
-                        padding: '0.75rem',
-                        borderRadius: '6px',
-                        marginBottom: '1rem',
-                        backgroundColor: message.includes('✓') ? '#d4edda' : '#f8d7da',
-                        color: message.includes('✓') ? '#155724' : '#721c24',
-                        border: `1px solid ${message.includes('✓') ? '#c3e6cb' : '#f5c6cb'}`
-                    }}>
+                    <div className={`ac-01-message ${message.includes('✓') ? 'success' : 'error'}`}>
                         {message}
                     </div>
                 )}
 
                 <button
-                    className="ac-01-add-to-cart"
+                    className={`ac-01-add-to-cart ${isAdding ? 'loading' : ''}`}
                     onClick={handleAddToCart}
                     disabled={isAdding}
-                    style={{
-                        opacity: isAdding ? 0.7 : 1,
-                        cursor: isAdding ? 'not-allowed' : 'pointer'
-                    }}
                 >
                     {isAdding ? 'Adding...' : 'Add to cart'}
                 </button>

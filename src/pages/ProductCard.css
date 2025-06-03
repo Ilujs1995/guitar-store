@@ -1,4 +1,5 @@
 /* src/components/ProductCard.css */
+
 .product-card {
     background: white;
     border-radius: 10px;
@@ -6,6 +7,12 @@
     padding: 1.5rem;
     width: 350px;
     text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .product-card img {
@@ -14,19 +21,127 @@
     object-fit: cover;
     aspect-ratio: 3/4;
     margin-bottom: 1rem;
+    transition: transform 0.2s ease;
 }
 
-.product-card h3 {
+.product-image-link {
+    display: block;
+    text-decoration: none;
+}
+
+.product-image-link:hover img {
+    transform: scale(1.02);
+}
+
+.product-title {
     font-size: 1.3rem;
     margin: 0.75rem 0;
+    color: #333;
 }
 
-.product-card p {
+.product-description {
     font-size: 1rem;
     color: #555;
     margin-bottom: 1rem;
+    line-height: 1.4;
 }
 
-.product-card audio {
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #705C53;
+    margin: 0.5rem 0;
+}
+
+.product-audio {
     width: 100%;
+    margin: 1rem 0;
+    border-radius: 4px;
+}
+
+.product-success-message {
+    margin: 0.5rem 1rem;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-weight: 500;
+}
+
+.product-success-message.show {
+    opacity: 1;
+}
+
+.product-add-button {
+    margin: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border: 1px solid #705C53;
+    background-color: #705C53;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-weight: 500;
+    min-width: 140px;
+}
+
+.product-add-button:hover:not(:disabled) {
+    background-color: #5a4842;
+    transform: translateY(-1px);
+}
+
+.product-add-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.product-add-button.adding,
+.product-add-button:disabled {
+    background-color: #8B7355;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .product-card {
+        width: 100%;
+        max-width: 320px;
+        padding: 1rem;
+    }
+
+    .product-title {
+        font-size: 1.2rem;
+    }
+
+    .product-description {
+        font-size: 0.9rem;
+    }
+
+    .product-price {
+        font-size: 1.1rem;
+    }
+
+    .product-add-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+        margin: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product-card {
+        max-width: 280px;
+        padding: 0.8rem;
+    }
+
+    .product-add-button {
+        width: calc(100% - 1.6rem);
+        margin: 0.8rem;
+    }
 }

@@ -1,4 +1,4 @@
-/* src/pages/EL-STR.css */
+/* src/pages/el-str.css */
 
 .el-str-container {
     width: 100vw;
@@ -6,7 +6,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    /* 垂直居中對齊 */
     justify-content: center;
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -15,47 +14,42 @@
 }
 
 .el-str-image-section {
+    flex: 1 1 500px;
+    max-width: 600px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    align-self: center;
     overflow: hidden;
 }
 
 .el-str-image {
     width: 100%;
     max-width: 450px;
-    /* 限制最大寬度 */
     height: auto;
-    /* 高度自適應 */
     object-fit: contain;
-    /* 保持原比例 */
     border-radius: 12px;
-    /* 增加圓角 */
     transition: transform 0.3s ease;
 }
 
 .el-str-image:hover {
     transform: scale(1.03);
-    /* 輕微放大效果 */
 }
 
 .el-str-details-section {
+    flex: 1 1 500px;
+    max-width: 600px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-
-.el-str-image-section,
-.el-str-details-section {
-    flex: 1 1 500px;
-    max-width: 600px;
     padding: 20px;
     box-sizing: border-box;
     align-self: center;
-    /* 確保兩個部分都垂直居中 */
 }
 
 .el-str-title {
@@ -98,6 +92,26 @@
     margin-bottom: 5px;
 }
 
+.el-lsp-message {
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.el-lsp-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.el-lsp-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
 .el-str-add-to-cart {
     background-color: #705C53;
     color: white;
@@ -108,16 +122,25 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     align-self: flex-start;
+    font-weight: 500;
 }
 
-.el-str-add-to-cart:hover {
+.el-str-add-to-cart:hover:not(:disabled) {
     background-color: #5a4842;
 }
 
+.el-str-add-to-cart:disabled {
+    background-color: #9e8b7e;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Responsive Design */
 @media screen and (max-width: 768px) {
     .el-str-container {
         flex-direction: column;
         align-items: center;
+        padding: 15px;
     }
 
     .el-str-image-section,
@@ -129,7 +152,6 @@
 
     .el-str-image {
         max-width: 100%;
-        /* 手機版上圖片可以占滿容器寬度 */
     }
 
     .el-str-title {
@@ -137,10 +159,37 @@
     }
 
     .el-str-price {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .el-str-overview-title {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .el-str-description {
+        font-size: 0.9rem;
+    }
+
+    .el-str-features-list {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .el-str-container {
+        padding: 10px;
+    }
+
+    .el-str-title {
+        font-size: 1.8rem;
+    }
+
+    .el-str-price {
+        font-size: 1.2rem;
+    }
+
+    .el-str-add-to-cart {
+        width: 100%;
+        text-align: center;
     }
 }
