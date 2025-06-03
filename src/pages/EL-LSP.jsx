@@ -4,11 +4,11 @@ import lesPaulImage from '/src/assets/images/product-les-paul.jpg';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 
 function ELLSP() {
-    const { addItem, sessionId } = useShoppingCart();
+    const { addItem } = useShoppingCart();
     const [isAdding, setIsAdding] = useState(false);
     const [message, setMessage] = useState('');
 
-    // EL-LSP 商品資料 (與後端一致)
+    // EL-LSP product data (consistent with backend)
     const elLspProduct = {
         id: 'EL-LSP',
         name: 'EL-LSP',
@@ -21,19 +21,18 @@ function ELLSP() {
             setIsAdding(true);
             setMessage('');
 
-            // 使用 ShoppingCartContext 的 addItem 方法 (傳遞商品 ID)
             await addItem(elLspProduct.id, 1);
 
-            setMessage('✓ 商品已添加到購物車！');
+            setMessage('✓ Item added to cart!');
 
-            // 3秒後清除訊息
+            // Clear message after 3 seconds
             setTimeout(() => setMessage(''), 3000);
 
         } catch (error) {
-            console.error('添加商品到購物車失敗:', error);
-            setMessage('❌ 添加失敗，請稍後再試');
+            console.error('Failed to add item to cart:', error);
+            setMessage('❌ Failed to add item. Please try again.');
 
-            // 5秒後清除錯誤訊息
+            // Clear error message after 5 seconds
             setTimeout(() => setMessage(''), 5000);
         } finally {
             setIsAdding(false);
@@ -63,7 +62,7 @@ function ELLSP() {
                     <li>Classic and iconic aesthetics</li>
                 </ul>
 
-                {/* 狀態訊息顯示 */}
+                {/* Status message display */}
                 {message && (
                     <div className="message" style={{
                         padding: '0.75rem',

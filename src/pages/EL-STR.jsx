@@ -4,11 +4,10 @@ import stratocasterImage from '/src/assets/images/product-stratocaster.jpg';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 
 function ELSTR() {
-    const { addItem, sessionId } = useShoppingCart();
+    const { addItem } = useShoppingCart();
     const [isAdding, setIsAdding] = useState(false);
     const [message, setMessage] = useState('');
 
-    // EL-STR 商品資料 (與後端一致)
     const elStrProduct = {
         id: 'EL-STR',
         name: 'EL-STR',
@@ -21,19 +20,13 @@ function ELSTR() {
             setIsAdding(true);
             setMessage('');
 
-            // 使用 ShoppingCartContext 的 addItem 方法 (傳遞商品 ID)
             await addItem(elStrProduct.id, 1);
-
-            setMessage('✓ 商品已添加到購物車！');
-
-            // 3秒後清除訊息
+            setMessage('✓ Added to cart!');
             setTimeout(() => setMessage(''), 3000);
 
         } catch (error) {
-            console.error('添加商品到購物車失敗:', error);
-            setMessage('❌ 添加失敗，請稍後再試');
-
-            // 5秒後清除錯誤訊息
+            console.error('Add to cart failed:', error);
+            setMessage('❌ Failed to add. Please try again.');
             setTimeout(() => setMessage(''), 5000);
         } finally {
             setIsAdding(false);
@@ -63,7 +56,6 @@ function ELSTR() {
                     <li>Ideal for various music genres, especially funk and rock</li>
                 </ul>
 
-                {/* 狀態訊息顯示 */}
                 {message && (
                     <div className="message" style={{
                         padding: '0.75rem',

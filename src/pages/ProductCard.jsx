@@ -5,14 +5,14 @@ import { useShoppingCart } from '../context/ShoppingCartContext';
 import './ProductCard.css';
 
 function ProductCard({
-    productId,     // 商品 ID
+    productId,
     image,
     title,
     description,
-    price,         // 商品價格
+    price,
     audioSrc,
     link,
-    quantity = 1   // 預設數量
+    quantity = 1
 }) {
     const { addItem, isLoading } = useShoppingCart();
     const [isAdding, setIsAdding] = useState(false);
@@ -52,16 +52,10 @@ function ProductCard({
         setIsAdding(true);
         try {
             await addItem(productId, quantity);
-
-            // 顯示成功訊息
             setShowSuccess(true);
-            setTimeout(() => {
-                setShowSuccess(false);
-            }, 2000);
-
+            setTimeout(() => setShowSuccess(false), 2000);
         } catch (error) {
-            console.error('添加商品到購物車失敗:', error);
-            // 這裡可以顯示錯誤訊息或處理錯誤
+            console.error('Add to cart failed:', error);
         } finally {
             setIsAdding(false);
         }
@@ -96,7 +90,7 @@ function ProductCard({
             )}
 
             <div style={successStyle}>
-                ✓ 已加入購物車！
+                ✓ Added to cart!
             </div>
 
             <button
@@ -104,7 +98,7 @@ function ProductCard({
                 onClick={handleAddToCart}
                 disabled={isAdding || isLoading}
             >
-                {isAdding ? '處理中...' : 'Add to cart'}
+                {isAdding ? 'Adding...' : 'Add to cart'}
             </button>
         </div>
     );
