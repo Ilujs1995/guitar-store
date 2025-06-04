@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ac-01.css';
+import './AC-01.css';
 import ac01Image from '/src/assets/images/product-acoustic-guitar.jpg';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 
