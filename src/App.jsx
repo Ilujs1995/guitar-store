@@ -10,7 +10,7 @@ import Testimonial from './components/Testimonial';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
 import Product from './pages/Product'; // 匯入 Product 頁面
-import AC01 from './pages/Ac-01'; // Import the AC01 component
+import AC01 from './pages/AC-01'; // Import the AC01 component
 import ELSTR from './pages/EL-STR'; // Import the ELSTR component
 import ELLSP from './pages/EL-LSP'; // Import the EL-LSP component
 import Manufacturing from './pages/Manufacturing';
