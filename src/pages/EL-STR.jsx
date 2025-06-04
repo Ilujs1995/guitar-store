@@ -1,6 +1,6 @@
 // EL-STR.jsx
 import React, { useState } from 'react';
-import './el-str.css';
+import './EL-STR.css';
 import stratocasterImage from '/src/assets/images/product-stratocaster.jpg';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 

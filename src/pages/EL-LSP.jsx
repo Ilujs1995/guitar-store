@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './el-lsp.css';
+import './EL-LSP.css';
 import lesPaulImage from '/src/assets/images/product-les-paul.jpg';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 
