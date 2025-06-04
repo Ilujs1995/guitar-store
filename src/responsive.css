@@ -1,147 +1,37 @@
-/* 基礎響應式設計 - 優化版 */
-
-/* 小螢幕手機 (320px - 480px) */
-@media (max-width: 480px) {
+/* Responsive */
+@media (max-width: 768px) {
 
     .hero,
     .highlight {
         flex-direction: column;
-        padding: 1rem;
     }
 
     .cards {
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
     }
 
     .banner {
         text-align: center;
-        padding: 1rem;
     }
 
     .text-grid {
         grid-template-columns: 1fr;
-        padding: 1rem;
-        gap: 1rem;
-        text-align: center;
-    }
-}
-
-/* 中等手機螢幕 (481px - 768px) - 針對你的問題機型 */
-@media (min-width: 481px) and (max-width: 768px) {
-
-    .hero,
-    .highlight {
-        flex-direction: column;
-        padding: 1.5rem;
-    }
-
-    .cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-    }
-
-    .banner {
-        text-align: center;
-        padding: 1.5rem;
-    }
-
-    .text-grid {
-        grid-template-columns: 1fr;
-        padding: 2rem 1.5rem;
+        /* 單欄排列 */
+        padding: 2rem;
+        /* 縮小內距 */
         gap: 1.5rem;
         text-align: center;
     }
+
+
 }
 
-/* 平板直向 (769px - 991px) */
-@media (min-width: 769px) and (max-width: 991px) {
-
-    .hero,
-    .highlight {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .cards {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-    }
-
-    .text-grid {
-        grid-template-columns: 1fr 1fr;
-        padding: 3rem 2rem;
-        gap: 2rem;
-    }
-}
-
-/* 小桌面 (992px - 1199px) */
-@media (min-width: 992px) and (max-width: 1199px) {
-    .text-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        padding: 4rem 3rem;
-        gap: 2rem;
-    }
-}
-
-/* 大螢幕桌面 (1200px+) */
 @media (min-width: 1200px) {
     .text-grid {
         padding-left: 12rem;
+        /* 寬螢幕時的左 padding */
         padding-right: 12rem;
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-    }
-}
-
-/* 額外的安全措施 - 確保所有元素不會溢出 */
-@media (max-width: 768px) {
-    * {
-        box-sizing: border-box;
-    }
-
-    .hero,
-    .highlight,
-    .cards,
-    .banner,
-    .text-grid {
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-    /* 如果有圖片或其他媒體元素 */
-    img,
-    video,
-    iframe {
-        max-width: 100%;
-        height: auto;
-    }
-}
-
-/* 特別針對小米和三星常見解析度的調整 */
-@media (max-width: 412px) {
-
-    /* 小米14e: 412x915px */
-    .text-grid {
-        padding: 1rem 0.75rem;
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 360px) {
-
-    /* 三星A52s等: 360x800px */
-    .text-grid {
-        padding: 1rem 0.5rem;
-        gap: 0.75rem;
-    }
-
-    .hero,
-    .highlight {
-        padding: 0.75rem;
+        /* 寬螢幕時的右 padding */
     }
 }
