@@ -1,6 +1,6 @@
 // CustomizationForm.jsx
 import React, { useState } from 'react';
-import './customizationform.css';
+import './CustomizationForm.css';
 
 function CustomizationForm() {
     const [formData, setFormData] = useState({
