@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 function Footer() {
     return (
         <footer>
-            <div className="subscribe">
+            {/* <div className="subscribe">
                 <p>Subscribe to updates</p>
                 <input type="email" placeholder="Your Email Here" />
                 <button>Join</button>
-            </div>
+            </div> */}
             <div className="footer-links">
                 <div>
                     <h4>Products</h4>
