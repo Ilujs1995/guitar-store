@@ -25,6 +25,7 @@ function Footer() {
                     <ul>
                         <li>Instagram</li>
                         <li>Facebook</li>
+                        <li><a href="mailto:chunyung8487@gmail.com">Email</a></li>
                     </ul>
                 </div>
 
