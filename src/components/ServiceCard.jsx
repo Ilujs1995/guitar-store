@@ -1,6 +1,6 @@
-// src/components/ServiceCard.jsx
 import React from 'react';
-import './ServiceCard.css'; // 確保路徑正確
+import './ServiceCard.css';
+import { Link } from 'react-router-dom';
 
 function ServiceCard({ imageUrl, title, description, linkText, linkUrl }) {
     return (
@@ -8,7 +8,7 @@ function ServiceCard({ imageUrl, title, description, linkText, linkUrl }) {
             <img src={imageUrl} alt={title} />
             <h3>{title}</h3>
             <p>{description}</p><br />
-            <a href={linkUrl}>{linkText}</a>
+            <Link to={linkUrl}>{linkText}</Link>
         </div>
     );
 }

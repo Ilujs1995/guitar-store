@@ -4,7 +4,6 @@ import ServiceCard from './ServiceCard';
 import acousticGuitarImage from '../assets/images/service-list-acoustic-guitar.jpg';
 import guitarPlayerImage from '../assets/images/service-list-guitar-player.jpg';
 import electricGuitarImage from '../assets/images/service-list-electric-guitar.jpg';
-import { Link } from 'react-router-dom';
 
 function ServiceList() {
     return (
