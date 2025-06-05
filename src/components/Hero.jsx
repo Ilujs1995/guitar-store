@@ -1,6 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import heroImage from '../assets/images/hero-acoustic-guitar.jpg'; // 引入圖片
+import { Link } from 'react-router-dom';
 
 function Hero() {
     return (
