@@ -1,12 +1,10 @@
 # Guitar Store
 
-使用 React 開發的吉他商店電商平台。
-
 ## 功能特色
 
-- 響應式首頁展示
-- 產品目錄瀏覽
-- 購物車功能
+- 響應式首頁
+- 產品目錄與音色試聽
+- 購物車
 - 吉他客製化表單
 - 聯絡表單
 
@@ -17,18 +15,9 @@
 - React Context API
 - CSS3
 
-## 安裝與運行
+## npm run dev
 
-```bash
-# 安裝依賴
-npm install
-
-# 啟動開發伺服器
-npm start
-
-# 建置生產版本
-npm run build
-```
+https://guitar-store-git-main-ilujs1995s-projects.vercel.app/
 
 ## 頁面路由
 
@@ -36,7 +25,7 @@ npm run build
 |------|------|
 | `/` | 首頁 |
 | `/product` | 產品頁面 |
-| `/ac-01`, `/el-str`, `/el-lsp` | 吉他型號詳細頁 |
+| `/ac-01`, `/el-str`, `/el-lsp` | 吉他型號介紹 |
 | `/manufacturing` | 製造工藝 |
 | `/customizationform` | 客製化表單 |
 | `/contactus` | 聯絡我們 |
