@@ -34,11 +34,36 @@ https://guitar-store-git-main-ilujs1995s-projects.vercel.app/
 ## 專案結構
 
 ```
-src/
-├── components/    # 通用組件
-├── pages/         # 頁面組件
-├── context/       # 狀態管理
-└── App.js         # 主要路由配置
+guitar-store/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── components/          # 可重用組件
+│   │   ├── Header.js
+│   │   ├── Hero.js
+│   │   ├── Feature.js
+│   │   ├── Highlight.js
+│   │   ├── ServiceList.js
+│   │   ├── Testimonial.js
+│   │   ├── Banner.js
+│   │   └── Footer.js
+│   ├── pages/               # 頁面組件
+│   │   ├── Product.js
+│   │   ├── AC-01.js
+│   │   ├── EL-STR.js
+│   │   ├── EL-LSP.js
+│   │   ├── Manufacturing.js
+│   │   ├── CustomizationForm.js
+│   │   ├── ContactUs.js
+│   │   └── ShoppingCart.js
+│   ├── context/             # Context 狀態管理
+│   │   └── ShoppingCartContext.js
+│   ├── App.js
+│   ├── App.css
+│   └── index.js
+├── package.json
+└── README.md
 ```
 
 開發伺服器運行在 `http://localhost:3000`
